@@ -3,11 +3,16 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Dropright from './Dropright'
 
+interface DroprightProps {
+  //[key: string]: any // allows dynamic keys and values
+  title: string
+}
+
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example({ title }: DroprightProps) {
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -25,11 +30,18 @@ export default function Example() {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='absolute mt-2 w-36 left-20 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <Menu.Items className='absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
-            <Dropright />
+            <Dropright title={'Tier 1'} />
+            <Dropright title={'Tier 2'} />
+            <Dropright title={'Tier 3'} />
+            <Dropright title={'Tier 4'} />
+            <Dropright title={'Tier 5'} />
+            <Dropright title={'Tier 6'} />
+            <Dropright title={'Tier 7'} />
+            <Dropright title={'Tier 8'} />
 
-            <Menu.Item>
+            {/* <Menu.Item>
               {({ active }) => (
                 <a
                   href='#'
@@ -41,33 +53,7 @@ export default function Example() {
                   Account settings
                 </a>
               )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href='#'
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Support
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href='#'
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  License
-                </a>
-              )}
-            </Menu.Item>
+            </Menu.Item> */}
           </div>
         </Menu.Items>
       </Transition>

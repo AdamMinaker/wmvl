@@ -17,7 +17,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='rounded md:w-[650px] mx-auto overflow-hidden'>
+      <div className='rounded md:w-[650px] mx-auto'>
         <Image
           className=' md:my-2 md:rounded mx-auto'
           src={header}

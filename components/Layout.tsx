@@ -49,7 +49,7 @@ export default function Example() {
         <body class="h-full">
         ```
       */}
-      <div>
+      <div className=''>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as='div'
@@ -102,12 +102,12 @@ export default function Example() {
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className='h-0 flex-1 overflow-y-auto pt-5 pb-4'>
+                  <div className='h-0 flex-1 overflow-visible pt-5 pb-4'>
                     <div className='flex flex-shrink-0 items-center px-4'>
                       <Toggle />
                     </div>
                     <nav className='mt-5 space-y-1 px-2'>
-                      <Dropdown />
+                      <Dropdown title='Tier 1' />
                       {navigation.map((item) => (
                         <a
                           key={item.name}
@@ -144,15 +144,15 @@ export default function Example() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className='hidden md:absolute transform translate-y-44 h-4/6 md:inset-y-0 md:flex md:w-40 md:flex-col'>
+        <div className='overflow-visible hidden md:absolute transform translate-y-44 h-4/6 md:inset-y-0 md:flex md:w-40 md:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className='flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white'>
-            <div className='flex flex-1 flex-col overflow-y-auto pt-5 pb-4'>
+            <div className='flex flex-1 flex-col overflow-visible pt-5 pb-4'>
               <div className='flex flex-shrink-0 items-center px-4'>
                 <Toggle />
               </div>
               <nav className='mt-5 flex-1 space-y-1 bg-white px-2'>
-                <Dropdown />
+                <Dropdown title='Tier 1' />
                 {navigation.map((item) => (
                   <a
                     key={item.name}
@@ -198,7 +198,6 @@ export default function Example() {
                 <h1 className='text-2xl font-semibold text-gray-900'>Home</h1>
               </div>
               <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
-                {/* Replace with your content */}
                 <div className='py-4'>
                   <Heading />
 
@@ -230,7 +229,6 @@ export default function Example() {
                   </p>
                   <div className='h-96 rounded-lg border-4 border-dashed border-gray-200'></div>
                 </div>
-                {/* /End replace */}
               </div>
             </div>
           </main>
