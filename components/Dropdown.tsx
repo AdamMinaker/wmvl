@@ -8,6 +8,13 @@ interface DroprightProps {
   title: string
 }
 
+const items = [
+  { id: 1, title: 'Die Booben', link: '#' },
+  { id: 2, title: 'Court Jesters', link: '#' },
+  { id: 3, title: 'Dream Team', link: '#' },
+  { id: 4, title: 'Monstars', link: '#' },
+]
+
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
@@ -32,15 +39,14 @@ export default function Example({ title }: DroprightProps) {
       >
         <Menu.Items className='absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
-            <Dropright title={'Tier 1'} />
-            <Dropright title={'Tier 2'} />
-            <Dropright title={'Tier 3'} />
-            <Dropright title={'Tier 4'} />
-            <Dropright title={'Tier 5'} />
-            <Dropright title={'Tier 6'} />
-            <Dropright title={'Tier 7'} />
-            <Dropright title={'Tier 8'} />
-
+            <Dropright title={'Tier 1'} items={items} />
+            <Dropright title={'Tier 2'} items={items} />
+            <Dropright title={'Tier 3'} items={items} />
+            <Dropright title={'Tier 4'} items={items} />
+            <Dropright title={'Tier 5'} items={items} />
+            <Dropright title={'Tier 6'} items={items} />
+            <Dropright title={'Tier 7'} items={items} />
+            <Dropright title={'Tier 8'} items={items} />
             {/* <Menu.Item>
               {({ active }) => (
                 <a

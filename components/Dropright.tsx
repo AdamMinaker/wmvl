@@ -5,20 +5,14 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 interface DroprightProps {
   //[key: string]: any // allows dynamic keys and values
   title: string
+  items: { id: number; title: string; link: string }[]
 }
-
-const teams = [
-  { id: 1, team: 'Die Booben' },
-  { id: 2, team: 'Court Jesters' },
-  { id: 3, team: 'Dream Team' },
-  { id: 4, team: 'Monstars' },
-]
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ title }: DroprightProps) {
+export default function Example({ title, items }: DroprightProps) {
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -38,8 +32,8 @@ export default function Example({ title }: DroprightProps) {
       >
         <Menu.Items className='absolute -bottom-[112px] left-[148px] mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
-            {teams.map((team) => (
-              <Menu.Item key={team.id}>
+            {items.map((item) => (
+              <Menu.Item key={item.id}>
                 {({ active }) => (
                   <a
                     href='#'
@@ -48,7 +42,7 @@ export default function Example({ title }: DroprightProps) {
                       'block px-4 py-2 text-sm font-medium'
                     )}
                   >
-                    {team.team}
+                    {item.title}
                   </a>
                 )}
               </Menu.Item>
