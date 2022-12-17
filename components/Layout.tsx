@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -38,6 +39,25 @@ function classNames(...classes: any) {
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { systemTheme, theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  })
+
+  const renderThemeChanger = () => {
+    if (!mounted) return null
+
+    const currentTheme = theme === 'system' ? systemTheme : theme
+
+    if (currentTheme === 'dark') {
+      return <button onClick={() => setTheme('light')}>Light</button>
+    } else {
+      return <button onClick={() => setTheme('dark')}>Dark</button>
+      // return <Toggle />
+    }
+  }
 
   return (
     <>
@@ -104,7 +124,7 @@ export default function Example() {
                   </Transition.Child>
                   <div className='h-0 flex-1 overflow-visible pt-5 pb-4'>
                     <div className='flex flex-shrink-0 items-center px-4'>
-                      <Toggle />
+                      {renderThemeChanger()}
                     </div>
                     <nav className='mt-5 space-y-1 px-2'>
                       <Dropdown title='Tier 1' />
@@ -146,12 +166,12 @@ export default function Example() {
         {/* Static sidebar for desktop */}
         <div className='overflow-visible hidden md:absolute transform translate-y-44 h-4/6 md:inset-y-0 md:flex md:w-40 md:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white'>
+          <div className='flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white dark:bg-black'>
             <div className='flex flex-1 flex-col overflow-visible pt-5 pb-4'>
               <div className='flex flex-shrink-0 items-center px-4'>
-                <Toggle />
+                {renderThemeChanger()}
               </div>
-              <nav className='mt-5 flex-1 space-y-1 bg-white px-2'>
+              <nav className='mt-5 flex-1 space-y-1 bg-white dark:bg-black px-2'>
                 <Dropdown title='Tier 1' />
                 {navigation.map((item) => (
                   <a
