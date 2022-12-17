@@ -23,7 +23,7 @@ export default function Example({ title }: DroprightProps) {
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
-        <Menu.Button className='text-gray-600 hover:bg-gray-50 hover:text-gray-900 inline-flex w-full justify-left rounded-md bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none'>
+        <Menu.Button className='dark:bg-[#131516] dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf] text-gray-600 hover:bg-gray-50 hover:text-gray-900 inline-flex w-full justify-left rounded-md bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none'>
           Schedules
         </Menu.Button>
       </div>
@@ -37,7 +37,7 @@ export default function Example({ title }: DroprightProps) {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <Menu.Items className='dark:bg-[#171a1b] dark:text-[#d8d4cf] absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             <Dropright title={'Tier 1'} items={items} />
             <Dropright title={'Tier 2'} items={items} />

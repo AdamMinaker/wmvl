@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 interface DroprightProps {
   //[key: string]: any // allows dynamic keys and values
@@ -16,7 +17,7 @@ export default function Example({ title, items }: DroprightProps) {
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
-        <Menu.Button className='text-gray-600 hover:bg-gray-50 hover:text-gray-900 inline-flex w-full justify-left bg-white px-4 py-2 text-sm font-medium text-gray-700  hover:bg-gray-50 focus:outline-none'>
+        <Menu.Button className='dark:bg-[#171a1b] dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf] text-gray-600 hover:bg-gray-50 hover:text-gray-900 inline-flex w-full justify-left bg-white px-4 py-2 text-sm font-medium text-gray-700  hover:bg-gray-50 focus:outline-none'>
           {title}
         </Menu.Button>
       </div>
@@ -30,20 +31,20 @@ export default function Example({ title, items }: DroprightProps) {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='absolute -bottom-[112px] left-[148px] mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <Menu.Items className='dark:bg-[#171a1b]  absolute -bottom-[112px] left-[148px] mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             {items.map((item) => (
               <Menu.Item key={item.id}>
                 {({ active }) => (
-                  <a
+                  <Link
                     href='#'
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm font-medium'
+                      'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
                     )}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 )}
               </Menu.Item>
             ))}
