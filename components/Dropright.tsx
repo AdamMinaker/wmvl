@@ -40,7 +40,7 @@ export default function Example({ title, items }: DroprightProps) {
                     href='#'
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
+                      'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
                     )}
                   >
                     {item.title}
