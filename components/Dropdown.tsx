@@ -3,9 +3,10 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Dropright from './Dropright'
 
-interface DroprightProps {
+interface DropdownProps {
   //[key: string]: any // allows dynamic keys and values
   title: string
+  mobile: boolean
 }
 
 const items = [
@@ -19,13 +20,15 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ title }: DroprightProps) {
+export default function Example({ title, mobile }: DropdownProps) {
+  const buttonClassName = mobile
+    ? 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf] w-full'
+    : 'group flex items-center px-2 py-2 text-sm font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf] w-full'
+
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
-        <Menu.Button className='dark:bg-[#131516] dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf] text-gray-600 hover:bg-gray-50 hover:text-gray-900 inline-flex w-full justify-left rounded-md bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none'>
-          Schedules
-        </Menu.Button>
+        <Menu.Button className={buttonClassName}>Schedules</Menu.Button>
       </div>
 
       <Transition

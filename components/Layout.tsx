@@ -127,7 +127,7 @@ export default function Example() {
                       {renderThemeChanger()}
                     </div>
                     <nav className='mt-5 space-y-1 px-2'>
-                      <Dropdown title='Tier 1' />
+                      <Dropdown title='Tier 1' mobile={true} />
                       {navigation.map((item) => (
                         <a
                           key={item.name}
@@ -183,7 +183,7 @@ export default function Example() {
                 {renderThemeChanger()}
               </div>
               <nav className='mt-5 flex-1 space-y-1 bg-white dark:bg-[#131516] px-2'>
-                <Dropdown title='Tier 1' />
+                <Dropdown title='Tier 1' mobile={false} />
                 {navigation.map((item) => (
                   <a
                     key={item.name}
@@ -191,7 +191,7 @@ export default function Example() {
                     className={classNames(
                       item.current
                         ? 'bg-gray-100 text-gray-900'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:hover:bg-[#1a1d1e]',
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
                     )}
                   >
