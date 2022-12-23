@@ -1,37 +1,38 @@
 import { Fragment, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Dialog, Transition } from '@headlessui/react'
-import { Bars3Icon, CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Toggle from './Toggle'
-import Dropdown from './Dropdown'
-import Heading from './Heading'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import ScheduleDropdown from './SchedulesDropdown'
 import header from '../public/logo.gif'
 import Image from 'next/image'
+import ScoresDropdown from './ScoresDropdown'
+import AboutDropdown from './AboutDropdown'
+import PlayersWantedDropdown from './PlayersWantedDropdown'
+
+interface Props {
+  children: React.ReactNode
+}
 
 const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: false },
-  { name: 'Schedules', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Scores', href: '#', icon: UsersIcon, current: false },
-  { name: 'About', href: '#', icon: FolderIcon, current: false },
-  { name: 'Players wanted', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Email us', href: '#', icon: InboxIcon, current: false },
-  { name: 'FAQ', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Links', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Photo library', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Pictures', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Team contacts', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Tournaments', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Code of conduct', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Rule book', href: '#', icon: ChartBarIcon, current: false },
-  { name: 'Violations', href: '#', icon: ChartBarIcon, current: false }
+  { name: 'Home', href: '#', dropDown: false, current: false },
+  { name: 'Schedules', href: '#', dropDown: true, renderDropDown: <ScheduleDropdown key={1412}/>, current: false },
+  { name: 'Scores', href: '#', dropDown: true, renderDropDown: <ScoresDropdown key={3523}/>, current: false },
+  { name: 'About', href: '#', dropDown: true, renderDropDown: <AboutDropdown key={6284}/>, current: false },
+  { name: 'Players wanted', href: '#', dropDown: true, renderDropDown: <PlayersWantedDropdown key={8233}/>, current: false },
+  { name: 'Email us', href: '#', dropDown: false, current: false },
+  { name: 'FAQ', href: '#', dropDown: false, current: false },
+  { name: 'Links', href: '#', dropDown: false, current: false },
+  { name: 'Photo library', href: 'https://drive.google.com/drive/folders/1_tlRiOEcOnLv2y9-nm5x9XeDevsa-qJS', dropDown: false, current: false },
+  { name: 'Pictures', href: '#', dropDown: false, current: false },
+  { name: 'Team contacts', href: '#', dropDown: false, current: false },
+  { name: 'Tournaments', href: 'http://www.manitobavolleyball.com/index.asp?Page=86', dropDown: false, current: false },
+  { name: 'Code of conduct', href: 'https://volleyball.ca/uploads/Policies/2020/Pan_Canadian_Policy_-_Code_of_Conduct_and_Ethics_-_Oct_2020.pdf', dropDown: false, current: false },
+  { name: 'Rule book', href: 'https://volleyball.ca/uploads/Development/Referee/Rules/Rulebook_2018-19_EN_FINAL_-_updated_Oct_2018.pdf', dropDown: false, current: false },
+  { name: 'Violations', href: 'https://drive.google.com/drive/folders/1K4RRtP9wfn5yzLgOOg8PrqI3Hs_hXkPU', dropDown: false, current: false }
 ]
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
-}
-
-interface Props {
-  children: React.ReactNode
 }
 
 const Layout: React.FunctionComponent<Props> = (props: Props) => {
@@ -78,15 +79,6 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
-
       <div className='rounded md:w-[650px] mx-auto'>
         <Image className=' md:my-2 md:rounded mx-auto' src={header} alt='WMVL logo with players in the background.' />
 
@@ -139,19 +131,22 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
                     <div className='h-0 flex-1 overflow-y-auto pt-5 pb-4'>
                       <div className='flex flex-shrink-0 items-center px-4'>{renderThemeChanger()}</div>
                       <nav className='mt-5 space-y-1 px-2'>
-                        <Dropdown title='Tier 1' mobile={true} />
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                              'group flex items-center px-2 py-2 text-base font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
-                            )}
-                          >
-                            {item.name}
-                          </a>
-                        ))}
+                        {navigation.map((item) =>
+                          item.dropDown ? (
+                            item.renderDropDown
+                          ) : (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className={classNames(
+                                item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                                'group flex items-center px-2 py-2 text-base font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
+                              )}
+                            >
+                              {item.name}
+                            </a>
+                          )
+                        )}
                       </nav>
                     </div>
                     <div className='flex flex-shrink-0 border-t border-gray-200 dark:border-[#363b3d] p-4'>
@@ -185,19 +180,22 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
               <div className='flex flex-1 flex-col overflow-visible pt-5 pb-4 dark:bg-[#131516]'>
                 <div className='flex flex-shrink-0 items-center px-4'>{renderThemeChanger()}</div>
                 <nav className='mt-5 flex-1 space-y-1 bg-white dark:bg-[#131516] px-2'>
-                  <Dropdown title='Tier 1' mobile={false} />
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                        'group flex items-center px-2 py-2 text-sm font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
+                  {navigation.map((item) =>
+                    item.dropDown ? (
+                      item.renderDropDown
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(
+                          item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                          'group flex items-center px-2 py-2 text-sm font-medium rounded-md dark:text-[#aea79d] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
+                        )}
+                      >
+                        {item.name}
+                      </a>
+                    )
+                  )}
                 </nav>
               </div>
               <div className='flex flex-shrink-0 border-t border-gray-200 dark:border-[#363b3d] dark:bg-[#131516] p-4'>

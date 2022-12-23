@@ -1,12 +1,11 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 
 interface DroprightProps {
   //[key: string]: any // allows dynamic keys and values
   title: string
-  items: { id: number; title: string; link: string }[]
+  items: { id: number; name: string; link: string }[]
 }
 
 function classNames(...classes: any) {
@@ -43,7 +42,7 @@ export default function Example({ title, items }: DroprightProps) {
                       'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
                     )}
                   >
-                    {item.title}
+                    {item.name}
                   </Link>
                 )}
               </Menu.Item>
