@@ -64,10 +64,9 @@ export default function Example() {
         <Menu.Items className='z-50 dark:bg-[#171a1b] dark:text-[#d8d4cf] absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             {items.map((item) => (
-              <Menu.Item>
+              <Menu.Item key={item.id}>
                 {({ active }) => (
                   <a
-                    key={item.id}
                     href={item.link}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',

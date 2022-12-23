@@ -59,20 +59,19 @@ export default function Example() {
         <Menu.Items className='z-50 dark:bg-[#171a1b] dark:text-[#d8d4cf] absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             {items.map((item) => (
-             <Menu.Item>
-             {({ active }) => (
-               <a
-                key={item.id}
-                 href='#'
-                 className={classNames(
-                   active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                   'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
-                 )}
-               >
-                 {item.name}
-               </a>
-             )}
-           </Menu.Item>
+              <Menu.Item key={item.id}>
+                {({ active }) => (
+                  <a
+                    href='#'
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </Menu.Item>
             ))}
           </div>
         </Menu.Items>
