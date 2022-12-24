@@ -2,17 +2,31 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import PostHeading from '../components/PostHeading'
 import PostFooter from '../components/PostFooter'
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 import NewPost from '../components/NewPost'
+import { GetServerSideProps } from 'next'
+import prisma from '../prisma'
+import { Prisma } from '.prisma/client'
+import Post from '../components/Post'
+
+interface Props {
+  posts: Prisma.PostsSelect[]
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const posts = await prisma.posts.findMany()
+
+  return {
+    props: { posts }
+  }
+}
 
 // post: { id, title, content }
 const posts = []
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ posts }: Props) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -30,35 +44,9 @@ export default function Home() {
           </div>
           <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
             <div className='py-4'>
+              <NewPost />
 
-              <NewPost/>
-
-              <PostHeading />
-
-              <p className='my-3'>
-                Hey Guys - so we have 67 teams so far. 17 Wing will not be playing in the league to start. A number of returning teams are rejoining
-                the league so that will necessitate some tier adjustments for the regular season. I will let you know asap if that will affect the
-                night that your team may play on. Otherwise get your balance of fees in by September 30 and get your team registered with Volleyball
-                Manitoba. Round 1 will start the week of October 2nd. If you know another team who would like to join please let me know as we would
-                like to get to 72 teams and have fully balanced schedules.
-              </p>
-
-              <PostFooter />
-              <button
-                type='button'
-                className='mt-2 mb-8 inline-flex items-center rounded-md border dark:hover:bg-gray-700 dark:border-[#363b3d] border-gray-300 dark:text-[#d8d4cf] dark:bg-[#1a1d1e] bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50'
-              >
-                Delete post
-              </button>
-
-              <PostHeading />
-              <p className='my-3'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy
-                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
-                in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
+              {posts && posts.map((post, index) => <Post key={index} post={post}/>)}
             </div>
           </div>
         </div>
