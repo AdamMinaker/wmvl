@@ -1,33 +1,34 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import PostHeading from '../components/PostHeading'
-import PostFooter from '../components/PostFooter'
-import { useState } from 'react'
 import NewPost from '../components/NewPost'
 import { GetServerSideProps } from 'next'
 import prisma from '../prisma'
 import { Prisma } from '.prisma/client'
 import Post from '../components/Post'
+import { useRouter } from 'next/router'
 
 interface Props {
   posts: Prisma.PostsSelect[]
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const posts = await prisma.posts.findMany()
+  const posts = await prisma.posts.findMany({
+    orderBy: [{updatedAt: 'desc'}]
+  })
 
   return {
-    props: { posts }
+    props: { posts: JSON.parse(JSON.stringify(posts)) }
   }
 }
-
-// post: { id, title, content }
-const posts = []
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ posts }: Props) {
-  const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  const refreshData = () => {
+    router.replace(router.asPath)
+  }
 
   return (
     <>
@@ -44,9 +45,8 @@ export default function Home({ posts }: Props) {
           </div>
           <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
             <div className='py-4'>
-              <NewPost />
-
-              {posts && posts.map((post, index) => <Post key={index} post={post}/>)}
+              <NewPost refreshData={refreshData} />
+              {posts && posts.map((post, index) => <Post refreshData={refreshData} key={index} post={post} />)}
             </div>
           </div>
         </div>

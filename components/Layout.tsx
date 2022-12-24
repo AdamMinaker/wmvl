@@ -80,7 +80,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
   return (
     <>
       <div className='rounded md:w-[650px] mx-auto'>
-        <Image className=' md:my-2 md:rounded mx-auto' src={header} alt='WMVL logo with players in the background.' />
+        <Image priority className='md:my-2 md:rounded mx-auto' src={header} alt='WMVL logo with players in the background.' />
 
         <div className='h-full'>
           <Transition.Root show={sidebarOpen} as={Fragment}>

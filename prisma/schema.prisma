@@ -13,7 +13,8 @@ datasource db {
 model Posts {
   id Int @id @default(autoincrement())
   title String?
-  Content String?
+  content String?
+  updatedAt DateTime @updatedAt
 }
 
 model Tiers {
