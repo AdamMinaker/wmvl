@@ -2,10 +2,19 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import PostHeading from '../components/PostHeading'
 import PostFooter from '../components/PostFooter'
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { CheckIcon } from '@heroicons/react/24/outline'
+import NewPost from '../components/NewPost'
+
+// post: { id, title, content }
+const posts = []
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [open, setOpen] = useState(false)
+
   return (
     <>
       <Head>
@@ -21,6 +30,9 @@ export default function Home() {
           </div>
           <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
             <div className='py-4'>
+
+              <NewPost/>
+
               <PostHeading />
 
               <p className='my-3'>
@@ -31,7 +43,13 @@ export default function Home() {
                 like to get to 72 teams and have fully balanced schedules.
               </p>
 
-              <PostFooter/>
+              <PostFooter />
+              <button
+                type='button'
+                className='mt-2 mb-8 inline-flex items-center rounded-md border dark:hover:bg-gray-700 dark:border-[#363b3d] border-gray-300 dark:text-[#d8d4cf] dark:bg-[#1a1d1e] bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50'
+              >
+                Delete post
+              </button>
 
               <PostHeading />
               <p className='my-3'>
