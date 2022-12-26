@@ -38,7 +38,7 @@ export default function Home({ posts }: Props) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='flex-1'>
+      <main className='flex-1 md:w-2/3'>
         <div className='py-6'>
           <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
             <h1 className='text-2xl font-semibold dark:text-[#d8d4cf] text-gray-900'>Home</h1>
