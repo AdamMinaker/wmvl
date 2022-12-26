@@ -14,7 +14,7 @@ interface Props {
 }
 
 const navigation = [
-  { name: 'Home', href: '#', dropDown: false, current: false },
+  { name: 'Home', href: '/', dropDown: false, current: false },
   { name: 'Schedules', href: '#', dropDown: true, renderDropDown: <ScheduleDropdown key={1412}/>, current: false },
   { name: 'Scores', href: '#', dropDown: true, renderDropDown: <ScoresDropdown key={3523}/>, current: false },
   { name: 'About', href: '#', dropDown: true, renderDropDown: <AboutDropdown key={6284}/>, current: false },
@@ -79,7 +79,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
 
   return (
     <>
-      <div className='rounded md:w-[650px] mx-auto'>
+      <div className='rounded md:w-[954px] mx-auto'>
         <Image priority className='md:my-2 md:rounded mx-auto' src={header} alt='WMVL logo with players in the background.' />
 
         <div className='h-full'>

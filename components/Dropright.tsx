@@ -6,13 +6,14 @@ interface DroprightProps {
   //[key: string]: any // allows dynamic keys and values
   title: string
   items: { id: number; name: string; link: string }[]
+  standings: boolean
 }
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ title, items }: DroprightProps) {
+export default function Example({ title, items, standings }: DroprightProps) {
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -30,13 +31,28 @@ export default function Example({ title, items }: DroprightProps) {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='dark:bg-[#171a1b]  absolute -bottom-[112px] left-[148px] mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <Menu.Items className='dark:bg-[#171a1b] absolute -bottom-[292px] left-[148px] mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
+            {standings && (
+              <Menu.Item key='341411231'>
+                {({ active }) => (
+                  <Link
+                    href='/standings/1'
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
+                    )}
+                  >
+                    {title} Standings
+                  </Link>
+                )}
+              </Menu.Item>
+            )}
             {items.map((item) => (
               <Menu.Item key={item.id}>
                 {({ active }) => (
                   <Link
-                    href='#'
+                    href={item.link}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block px-4 py-2 text-sm font-medium dark:text-[#aea79d] dark:bg-[#171a1b] dark:hover:bg-[#1a1d1e] dark:hover:text-[#d8d4cf]'
