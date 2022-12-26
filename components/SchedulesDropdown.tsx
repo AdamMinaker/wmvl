@@ -10,18 +10,372 @@ const tiers = [
       {
         id: 1,
         name: 'Die Booben',
-        link: '#'
+        link: '/schedules/1'
       },
-      { id: 2, name: 'Court Jesters', link: '#' },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
       {
         id: 3,
         name: 'Dream Team',
-        link: '#'
+        link: '/schedules/3'
       },
       {
         id: 4,
         name: 'Monstars',
-        link: '#'
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'Tier 2',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 3,
+    name: 'Tier 3',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 4,
+    name: 'Tier 4',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 5,
+    name: 'Tier 5',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 6,
+    name: 'Tier 6',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 7,
+    name: 'Tier 7',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
+      }
+    ]
+  },
+  {
+    id: 8,
+    name: 'Tier 8',
+    teams: [
+      {
+        id: 1,
+        name: 'Die Booben',
+        link: '/schedules/1'
+      },
+      { id: 2, name: 'Court Jesters', link: '/schedules/2' },
+      {
+        id: 3,
+        name: 'Dream Team',
+        link: '/schedules/3'
+      },
+      {
+        id: 4,
+        name: 'Monstars',
+        link: '/schedules/4'
+      },
+      {
+        id: 5,
+        name: 'Court Jesters',
+        link: '/schedules/5'
+      },
+      {
+        id: 6,
+        name: 'Scrubs',
+        link: '/schedules/6'
+      },
+      {
+        id: 7,
+        name: 'Third Army',
+        link: '/schedules/7'
+      },
+      {
+        id: 8,
+        name: 'Top Gun',
+        link: '/schedules/8'
+      },
+      {
+        id: 9,
+        name: 'Winnipeg Jets',
+        link: '/schedules/9'
       }
     ]
   }
@@ -52,7 +406,7 @@ export default function Example() {
         <Menu.Items className='z-50 dark:bg-[#171a1b] dark:text-[#d8d4cf] absolute mt-2 w-36 -top-2 left-[25px] md:left-[156px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             {tiers.map((tier) => (
-              <Dropright key={tier.name} title={tier.name} items={tier.teams} />
+              <Dropright key={tier.name} title={tier.name} items={tier.teams} standings={false} />
             ))}
 
             {/* <Menu.Item>
