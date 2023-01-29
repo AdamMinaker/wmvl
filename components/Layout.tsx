@@ -8,6 +8,8 @@ import Image from 'next/image'
 import ScoresDropdown from './ScoresDropdown'
 import AboutDropdown from './AboutDropdown'
 import PlayersWantedDropdown from './PlayersWantedDropdown'
+import { useGlobalContext } from '../contexts'
+import Link from 'next/link'
 
 interface Props {
   children: React.ReactNode
@@ -20,11 +22,11 @@ const navigation = [
   { name: 'About', href: '#', dropDown: true, renderDropDown: <AboutDropdown key={6284}/>, current: false },
   { name: 'Players wanted', href: '#', dropDown: true, renderDropDown: <PlayersWantedDropdown key={8233}/>, current: false },
   { name: 'Email us', href: '#', dropDown: false, current: false },
-  { name: 'FAQ', href: '#', dropDown: false, current: false },
-  { name: 'Links', href: '#', dropDown: false, current: false },
+  { name: 'FAQ', href: '/faq', dropDown: false, current: false },
+  { name: 'Links', href: '/references', dropDown: false, current: false },
   { name: 'Photo library', href: 'https://drive.google.com/drive/folders/1_tlRiOEcOnLv2y9-nm5x9XeDevsa-qJS', dropDown: false, current: false },
-  { name: 'Pictures', href: '#', dropDown: false, current: false },
-  { name: 'Team contacts', href: '#', dropDown: false, current: false },
+  { name: 'Pictures', href: 'https://wmvl.com/index.pl?class=Pictures&method=View&username=GUEST', dropDown: false, current: false },
+  { name: 'Team contacts', href: '/team-contacts', dropDown: false, current: false },
   { name: 'Tournaments', href: 'http://www.manitobavolleyball.com/index.asp?Page=86', dropDown: false, current: false },
   { name: 'Code of conduct', href: 'https://volleyball.ca/uploads/Policies/2020/Pan_Canadian_Policy_-_Code_of_Conduct_and_Ethics_-_Oct_2020.pdf', dropDown: false, current: false },
   { name: 'Rule book', href: 'https://volleyball.ca/uploads/Development/Referee/Rules/Rulebook_2018-19_EN_FINAL_-_updated_Oct_2018.pdf', dropDown: false, current: false },
@@ -35,10 +37,12 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Layout: React.FunctionComponent<Props> = (props: Props) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+const Layout: React.FunctionComponent<Props> = (props: Props) => {  
+  //const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { systemTheme, theme, setTheme } = useTheme()
+
+  const { sidebarOpen, setSidebarOpen } = useGlobalContext()
 
   useEffect(() => {
     setMounted(true)
@@ -135,7 +139,8 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
                           item.dropDown ? (
                             item.renderDropDown
                           ) : (
-                            <a
+                            <Link
+                              onClick={() => setSidebarOpen(false)}
                               key={item.name}
                               href={item.href}
                               className={classNames(
@@ -144,7 +149,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
                               )}
                             >
                               {item.name}
-                            </a>
+                            </Link>
                           )
                         )}
                       </nav>
@@ -184,7 +189,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
                     item.dropDown ? (
                       item.renderDropDown
                     ) : (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -193,7 +198,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
                         )}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )
                   )}
                 </nav>

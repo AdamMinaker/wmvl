@@ -1,19 +1,28 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import { useGlobalContext } from '../contexts'
 
 interface DroprightProps {
   //[key: string]: any // allows dynamic keys and values
   title: string
   items: { id: number; name: string; link: string }[]
   standings: boolean
+  closeMenuFunction: Function
 }
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ title, items, standings }: DroprightProps) {
+export default function Example({ title, items, standings, closeMenuFunction }: DroprightProps) {
+  const { sidebarOpen, setSidebarOpen } = useGlobalContext()
+
+  const onLinkClick = () => {
+    setSidebarOpen(false)
+    closeMenuFunction()
+  }
+
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -37,6 +46,7 @@ export default function Example({ title, items, standings }: DroprightProps) {
               <Menu.Item key='341411231'>
                 {({ active }) => (
                   <Link
+                    onClick={() => onLinkClick()}
                     href='/standings/1'
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -52,6 +62,7 @@ export default function Example({ title, items, standings }: DroprightProps) {
               <Menu.Item key={item.id}>
                 {({ active }) => (
                   <Link
+                    onClick={() => onLinkClick()}
                     href={item.link}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',

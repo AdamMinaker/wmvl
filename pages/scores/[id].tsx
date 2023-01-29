@@ -1,7 +1,7 @@
 import { Transition, Dialog } from '@headlessui/react'
 import { Prisma } from '@prisma/client'
 import { GetServerSideProps } from 'next'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Calendar from '../../components/Calendar'
 import Grid from '../../components/Grid'
 import ScoresTable from '../../components/ScoresTable'
@@ -23,7 +23,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 export default function Home({  }: Props) {
-  const [open, setOpen] = useState(true)
   return (
     <>
         <main className='flex-1'>

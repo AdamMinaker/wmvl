@@ -21,7 +21,7 @@ const transactions = [
     netAmount: '0'
   },
   {
-    id: '1',
+    id: '3',
     company: '	Tropical Depression',
     share: '4',
     commission: '10.5',
@@ -44,7 +44,7 @@ export default function Example() {
               <button
                 onClick={() => setShowTable(true)}
                 type='button'
-                className='relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 '
+                className='dark:text-[#d8d4cf] dark:bg-[#1a1d1e] dark:hover:bg-gray-700 dark:border-[#363b3d] relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 '
               >
                 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>
                   <path
@@ -58,7 +58,7 @@ export default function Example() {
               <button
                 onClick={() => setShowTable(false)}
                 type='button'
-                className='relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 '
+                className='dark:text-[#d8d4cf] dark:bg-[#1a1d1e] dark:hover:bg-gray-700 dark:border-[#363b3d] relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 '
               >
                 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>
                   <path
@@ -71,51 +71,51 @@ export default function Example() {
             </span>
           </div>
         </div>
-        {showTable && (
+        {showTable ? (
           <div className='mt-3 flex flex-col'>
             <div className='-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8'>
               <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
                 <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'>
-                  <table className='min-w-full divide-y divide-gray-300'>
-                    <thead className='bg-gray-50'>
+                  <table className='min-w-full divide-y divide-gray-300 dark:divide-[#363b3d]'>
+                    <thead className='bg-gray-50 dark:bg-[#1A1D1E]'>
                       <tr>
                         <th
                           scope='col'
-                          className='text-center whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6'
+                          className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6'
                         >
                           Ranking
                         </th>
-                        <th scope='col' className='text-center whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Team Name
                         </th>
-                        <th scope='col' className='text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Matches Played
                         </th>
-                        <th scope='col' className='text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Sets Won
                         </th>
-                        <th scope='col' className='text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Sets
                           <br /> Lost
                         </th>
-                        <th scope='col' className='text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Uniform Violations
                         </th>
-                        <th scope='col' className='text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
+                        <th scope='col' className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center px-2 py-3.5 text-left text-sm font-semibold text-gray-900'>
                           Default Violations
                         </th>
                       </tr>
                     </thead>
-                    <tbody className='divide-y divide-gray-200 bg-white'>
+                    <tbody className='divide-y divide-gray-200 bg-white dark:divide-[#363b3d] dark:bg-[#1A1D1E]'>
                       {transactions.map((transaction) => (
                         <tr key={transaction.id}>
-                          <td className='text-center whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-6'>{transaction.id}</td>
-                          <td className='whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900'>{transaction.company}</td>
-                          <td className='text-center whitespace-nowrap px-2 py-2 text-sm text-gray-900'>{transaction.share}</td>
-                          <td className='text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.commission}</td>
-                          <td className='text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.price}</td>
-                          <td className='text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.quantity}</td>
-                          <td className='text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.netAmount}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-6'>{transaction.id}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900'>{transaction.company}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-2 text-sm text-gray-900'>{transaction.share}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.commission}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.price}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.quantity}</td>
+                          <td className='dark:text-[#d8d4cf] dark:bg-[#1A1D1E] text-center whitespace-nowrap px-2 py-2 text-sm text-gray-500'>{transaction.netAmount}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -124,9 +124,8 @@ export default function Example() {
               </div>
             </div>
           </div>
-        )}
+        ) : (<Grid/>)}
       </div>
-      {!showTable && <Grid />}
     </>
   )
 }

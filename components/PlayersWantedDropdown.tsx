@@ -1,5 +1,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
+import { useGlobalContext } from '../contexts'
+import Link from 'next/link'
 
 const items = [
   {
@@ -39,6 +41,8 @@ function classNames(...classes: any) {
 }
 
 export default function Example() {
+  const { setSidebarOpen } = useGlobalContext()
+
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -61,7 +65,8 @@ export default function Example() {
             {items.map((item) => (
               <Menu.Item key={item.id}>
                 {({ active }) => (
-                  <a
+                  <Link
+                    onClick={() => setSidebarOpen(false)}
                     href='#'
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -69,7 +74,7 @@ export default function Example() {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 )}
               </Menu.Item>
             ))}
