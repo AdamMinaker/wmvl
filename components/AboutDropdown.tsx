@@ -1,26 +1,28 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
+import Link from 'next/link'
+import { useGlobalContext } from '../contexts'
 
 const items = [
   {
     id: 1,
     name: 'By-laws',
-    link: '#'
+    link: 'https://wmvl.com/posts/BYLAWS_16_final.pdf'
   },
   {
     id: 2,
     name: 'Constitution',
-    link: '/constitution'
+    link: '/about/constitution'
   },
   {
     id: 3,
     name: 'Executive',
-    link: '#'
+    link: '/about/executive'
   },
   {
     id: 4,
     name: 'General Information 2022-2023',
-    link: '#'
+    link: 'https://wmvl.com/posts/GenInfo_2022_2023.pdf'
   },
   {
     id: 5,
@@ -30,12 +32,12 @@ const items = [
   {
     id: 6,
     name: 'Scoresheet',
-    link: '#'
+    link: 'https://wmvl.com/posts/wmvl_score_sheet_2015_2016.xlsx'
   },
   {
     id: 7,
     name: 'Scoresheet stickers',
-    link: '#'
+    link: 'https://wmvl.com/posts/BlankWMVLScoreSheetStickers.xlsx'
   }
 ]
 
@@ -44,6 +46,8 @@ function classNames(...classes: any) {
 }
 
 export default function Example() {
+  const { setSidebarOpen } = useGlobalContext()
+
   return (
     <Menu as='div' className='relative inline-block text-left w-full'>
       <div>
@@ -66,7 +70,8 @@ export default function Example() {
             {items.map((item) => (
               <Menu.Item key={item.id}>
                 {({ active }) => (
-                  <a
+                  <Link
+                    onClick={() => setSidebarOpen(false)}
                     href={item.link}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -74,7 +79,7 @@ export default function Example() {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 )}
               </Menu.Item>
             ))}

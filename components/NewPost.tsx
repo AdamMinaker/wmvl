@@ -45,7 +45,7 @@ export default function NewPost( {refreshData}: Props ) {
           Description
         </label>
         <textarea
-          rows={5}
+          rows={8}
           id='description'
           className='dark:bg-[#131516] block w-full resize-none border-0 py-0 placeholder-gray-500 focus:ring-0 sm:text-sm'
           placeholder='Write a description...'
